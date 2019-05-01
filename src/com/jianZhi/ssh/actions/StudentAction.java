@@ -1,6 +1,8 @@
 package com.jianZhi.ssh.actions;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,19 +55,28 @@ public class StudentAction extends ActionSupport implements SessionAware, Reques
 	}
 	
 	public String register() {
-		School school = schoolService.getSchool(studentRegister.getCity(), studentRegister.getDistrict(), studentRegister.getSchoolName());
-		Student s = new Student();
-		s.setUsername(studentRegister.getUsername());
-		s.setPassword(studentRegister.getPassword());
-		s.setSchool(school);
-		s.setTelphone(studentRegister.getTelphone());
-		s.setEmail(studentRegister.getEmail());
-		boolean flag = studentService.register(s);
+		boolean flag = studentService.register(studentRegister);
 		if(flag)
 			return "register";
 		else
 			return "input";
 	}
+
+	public String checkSchool() throws Exception {
+	    try {
+            String schoolName = HttpUtils.getRequest().getParameter("schoolName");
+            PrintWriter writer = HttpUtils.getResponse("text/plain").getWriter();
+            if (studentService.haveSchool(schoolName)) {
+                writer.write("true");
+            } else {
+                writer.write("false");
+            }
+            return null;
+        } catch (Exception e) {
+	        e.printStackTrace();
+	        throw e;
+        }
+    }
 	
 	public String toHome() {
 		long id = (Long) session.get("id");
@@ -90,8 +101,6 @@ public class StudentAction extends ActionSupport implements SessionAware, Reques
 		Gson gson = new Gson();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.print(password);
-		System.out.print("test");
 		if(username != null && !username.trim().equals("") && password != null && !password.trim().equals("")) {
 			StudentLogin s = new StudentLogin();
 			s.setUsername(username);
@@ -112,21 +121,26 @@ public class StudentAction extends ActionSupport implements SessionAware, Reques
 		HttpServletRequest request = HttpUtils.getRequest();
 		HttpServletResponse response = HttpUtils.getResponse("application/json");
 		
-		Student s = new Student();
+		StudentRegister s = new StudentRegister();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String cityName = request.getParameter("cityName");
 		String district = request.getParameter("district");
 		String schoolName = request.getParameter("schoolName");
-		School school = schoolService.getSchool(cityName, district, schoolName);
 		String telphone = request.getParameter("telphone");
 		String email = request.getParameter("email");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
 		
 		s.setUsername(username);
 		s.setPassword(password);
-		s.setSchool(school);
+		s.setCity(cityName);
+		s.setDistrict(district);
+		s.setSchoolName(schoolName);
 		s.setTelphone(telphone);
 		s.setEmail(email);
+		s.setName(name);
+		s.setAddress(address);
 		
 		Gson gson = new Gson();
 		boolean flag = studentService.register(s);

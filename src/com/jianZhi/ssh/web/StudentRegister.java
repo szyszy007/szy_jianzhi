@@ -2,12 +2,30 @@ package com.jianZhi.ssh.web;
 
 public class StudentRegister {
 	private String username;
+	private String name;
 	private String password;
 	private String city;
 	private String district;
 	private String schoolName;
 	private String telphone;
 	private String email;
+	private String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getUsername() {
 		return username;

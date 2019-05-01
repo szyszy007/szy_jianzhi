@@ -9,6 +9,8 @@ public interface SchoolDao {
 
 	public boolean updateSchool(School c);
 
+	School selectSchoolByName(String schoolName);
+
 	public School selectSchool(int school_id);
 	
 	public School selectSchoolByCityDistrictAndSchoolName(String schoolName, String city, String district);

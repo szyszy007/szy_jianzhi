@@ -13,7 +13,7 @@
 	<package name="LoginOrRegister" namespace="/" extends="struts-default">
 
 		<global-results>
-			<result name="input"></result>
+			<result name="input" />
 		</global-results>
 
 
@@ -63,22 +63,23 @@
 			method="list">
 			<result>/WEB-INF/student/list.jsp</result>
 		</action>
+        <action name="checkSchool" class="com.jianZhi.ssh.actions.StudentAction" method="checkSchool"/>
 
 		<!-- json -->
 		<action name="login" class="com.jianZhi.ssh.actions.StudentAction"
-			method="login"></action>
+			method="login"/>
 		<action name="register" class="com.jianZhi.ssh.actions.StudentAction"
-			method="registerJson"></action>
+			method="registerJson"/>
 		<action name="getById" class="com.jianZhi.ssh.actions.StudentAction"
-			method="getById"></action>
+			method="getById"/>
 		<action name="getRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getForStudent"></action>
+			method="getForStudent"/>
 		<action name="flush" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="flush"></action>
+			method="flush"/>
 		<action name="getRecruitmentById" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getRecruitmentByid"></action>
+			method="getRecruitmentByid"/>
 		<action name="getRecruitmentsByRecruiterId" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getRecruitmentsByRecruiterId"></action>
+			method="getRecruitmentsByRecruiterId"/>
 
 	</package>
 
@@ -106,21 +107,21 @@
 
 
 		<action name="login" class="com.jianZhi.ssh.actions.RecruiterAction"
-			method="login"></action>
+			method="login"/>
 		<action name="register" class="com.jianZhi.ssh.actions.RecruiterAction"
-			method="registerJson"></action>
+			method="registerJson"/>
 		<action name="getById" class="com.jianZhi.ssh.actions.RecruiterAction"
-			method="getById"></action>
+			method="getById"/>
 		<action name="getRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getForRecruiter"></action>
+			method="getForRecruiter"/>
 		<action name="getRecruitmentById" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getRecruitmentByid"></action>
+			method="getRecruitmentByid"/>
 		<action name="addRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="insertAdd"></action>
+			method="insertAdd"/>
 		<action name="getRecruitmentsByRecruiterId" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="getRecruitmentsByRecruiterId"></action>
+			method="getRecruitmentsByRecruiterId"/>
 		<action name="deleteRecruitmentForAndroid" class="com.jianZhi.ssh.actions.RecruitmentAction"
-			method="deleteForAndroid"></action>
+			method="deleteForAndroid"/>
 	</package>
 
 </struts>

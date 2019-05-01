@@ -12,7 +12,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import com.jianZhi.ssh.entities.Student;
 import com.jianZhi.ssh.utils.ReflectionUtils;
 
-public class BaseDao<T> {
+public abstract class BaseDao<T> {
 
 	private SessionFactory sessionFactory;
 

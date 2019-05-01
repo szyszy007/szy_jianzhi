@@ -42,7 +42,7 @@ public class ReflectionUtils {
 				//superClass.getMethod(methodName, parameterTypes);
 				return superClass.getDeclaredMethod(methodName, parameterTypes);
 			} catch (NoSuchMethodException e) {
-				//Method ���ڵ�ǰ�ඨ��, ��������ת��
+				//Method ??????????, ???????????
 			}
 			//..
 		}
@@ -62,7 +62,7 @@ public class ReflectionUtils {
 			try {
 				return superClass.getDeclaredField(filedName);
 			} catch (NoSuchFieldException e) {
-				//Field ���ڵ�ǰ�ඨ��, ��������ת��
+				//Field ??????????, ???????????
 			}
 		}
 		return null;
@@ -82,7 +82,7 @@ public class ReflectionUtils {
 		try {
 			return method.invoke(object, parameters);
 		} catch(IllegalAccessException e) {
-			System.out.println("�������׳����쳣");
+			System.out.println("?????????????");
 		} 
 		
 		return null;
@@ -99,7 +99,7 @@ public class ReflectionUtils {
 		try {
 			field.set(object, value);
 		} catch (IllegalAccessException e) {
-			System.out.println("�������׳����쳣");
+			System.out.println("?????????????");
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class ReflectionUtils {
 		try {
 			result = field.get(object);
 		} catch (IllegalAccessException e) {
-			System.out.println("�������׳����쳣");
+			System.out.println("?????????????");
 		}
 		
 		return result;

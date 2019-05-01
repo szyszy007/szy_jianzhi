@@ -12,24 +12,29 @@ import com.jianZhi.ssh.web.RecruitmentSingle;
 @Repository("recruitmentDao")
 public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements RecruitmentDao{
 
+	@Override
 	public boolean insertRecruitment(Recruitment s, int Recruiter_id) {
-		s.setRecruiter((Recruiter)getSession().get(Recruiter.class, Recruiter_id));
+		s.setRecruiter(Recruiter_id);
 		return insert(s);
 	}
 
+	@Override
 	public Recruitment getRecruitmentByRecruitmentId(int recruitment_id) {
 		return get(recruitment_id);
 	}
 
+	@Override
 	public boolean deleteRecruitment(int recruitment_id) {
 		Recruitment r = get(recruitment_id);
 		return delete(r);
 	}
 
+	@Override
 	public boolean updateRecruiter(Recruitment s) {
 		return update(s);
 	}
 
+	@Override
 	public List<Recruitment> getRecruitmentsByTime(int min, List<String> strings, String... args) {
 		StringBuilder hql = new StringBuilder("from Recruitment");
 		if(strings != null && strings.size() != 0) {
@@ -53,7 +58,8 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		}
 		return get(min, hql.toString());
 	}
-	
+
+	@Override
 	public List<Recruitment> getRecruitments(List<String> strings, String... args) {
 		System.out.println(strings.size() + " " + args.length + " ");
 		System.out.println(strings);
@@ -77,7 +83,8 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		}
 		return get(hql.toString());
 	}
-	
+
+	@Override
 	public List<RecruitmentSingle> getRecruitmentsSingleByTime(int min, List<String> strings, String...args) {
 		List<Recruitment> list = getRecruitmentsByTime(min, strings, args);
 		List<RecruitmentSingle> list2 = new ArrayList<RecruitmentSingle>();
@@ -95,6 +102,7 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		return list2;
 	}
 
+	@Override
 	public List<RecruitmentSingle> getRecruitmentsSingle(List<String> strings, String... args) {
 		List<Recruitment> list = getRecruitments(strings, args);
 		List<RecruitmentSingle> list2 = new ArrayList<RecruitmentSingle>();
@@ -112,11 +120,13 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		return list2;
 	}
 
+	@Override
 	public List<Recruitment> findMessageByTitle(String title) {
 		String hql = "from Recruitment where title like ?";
 		return get(hql, title); 
 	}
-	
+
+	@Override
 	public List<RecruitmentSingle> findMessageByTitleSingle(String title) {
 		List<Recruitment> list = findMessageByTitle(title);
 		List<RecruitmentSingle> list2 = new ArrayList<RecruitmentSingle>();
@@ -134,11 +144,13 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		return list2;
 	}
 
+	@Override
 	public List<Recruitment> getRecruitmentsByRecruiterId(int recruiter_id) {
 		String hql = "from Recruitment where recruiter.recruiter_id = ?";
 		return get(hql, recruiter_id);
 	}
 
+	@Override
 	public List<RecruitmentSingle> getRecruitmentsSingleByRecruiterId(int recruiter_id) {
 		List<Recruitment> list = getRecruitmentsByRecruiterId(recruiter_id);
 		List<RecruitmentSingle> list2 = new ArrayList<RecruitmentSingle>();

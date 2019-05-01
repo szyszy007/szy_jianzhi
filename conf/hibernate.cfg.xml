@@ -23,11 +23,11 @@
 		
 		<mapping resource="com/jianZhi/ssh/entities/City.hbm.xml"/>
 		<mapping resource="com/jianZhi/ssh/entities/Company.hbm.xml"/>
-		<mapping resource="com/jianZhi/ssh/entities/Correspond.hbm.xml"/>
+		<mapping resource="com/jianZhi/ssh/entities/Correspond.hbm.xml.old"/>
 		<mapping resource="com/jianZhi/ssh/entities/Recruiter.hbm.xml"/>
 		<mapping resource="com/jianZhi/ssh/entities/School.hbm.xml"/>
 		<mapping resource="com/jianZhi/ssh/entities/Student.hbm.xml"/>
-		<mapping resource="com/jianZhi/ssh/entities/WorkKind.hbm.xml"/>
+		<mapping resource="com/jianZhi/ssh/entities/WorkKind.hbm.xml.old"/>
 		<mapping resource="com/jianZhi/ssh/entities/Recruitment.hbm.xml"/> test -->
 		
 		

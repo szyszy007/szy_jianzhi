@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.jianZhi.ssh.Dao.WorkKindDao;
 import com.jianZhi.ssh.entities.WorkKind;
 
+@Deprecated
 @Repository("workKindDao")
 public class WorkKindDaoImpl extends BaseDao<WorkKind> implements WorkKindDao {
 

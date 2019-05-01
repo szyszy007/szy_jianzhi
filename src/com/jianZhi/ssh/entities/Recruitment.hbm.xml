@@ -14,9 +14,9 @@
             <column name="TITLE" />
         </property>
         
-        <many-to-one name="city" class="com.jianZhi.ssh.entities.City" fetch="join">
+        <property name="city" type="java.lang.String">
             <column name="CITY" />
-        </many-to-one>
+        </property>
         
         <property name="district" type="java.lang.String">
             <column name="DISTRICT" />

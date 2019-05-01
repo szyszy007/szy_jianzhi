@@ -46,14 +46,8 @@ public class RecruiterAction extends ActionSupport implements SessionAware, Requ
 	}
 	
 	public String register() {
-		Company company = companyService.getCompany(recruiterRegister.getCity(), recruiterRegister.getDistrict(), recruiterRegister.getCompanyName());
-		Recruiter recruiter = new Recruiter();
-		recruiter.setUsername(recruiterRegister.getUsername());
-		recruiter.setPassword(recruiterRegister.getPassword());
-		recruiter.setCompany(company);
-		recruiter.setTelphone(recruiterRegister.getTelphone());
-		recruiter.setEmail(recruiterRegister.getEmail());
-		boolean flag = recruiterService.register(recruiter);
+
+		boolean flag = recruiterService.register(recruiterRegister);
 		if(flag)
 			return "register";
 		else
@@ -110,14 +104,18 @@ public class RecruiterAction extends ActionSupport implements SessionAware, Requ
 		HttpServletRequest request = HttpUtils.getRequest();
 		HttpServletResponse response = HttpUtils.getResponse("application/json");
 		
-		Recruiter r = new Recruiter();
+		RecruiterRegister r = new RecruiterRegister();
 		r.setUsername(request.getParameter("username"));
 		r.setPassword(request.getParameter("password"));
 		
 		String city = request.getParameter("cityName");
 		String district = request.getParameter("district");
 		String companyName = request.getParameter("companyName");
-		r.setCompany(companyService.getCompany(city, district, companyName));
+		String name = request.getParameter("name");
+		r.setCity(city);
+		r.setName(name);
+		r.setDistrict(district);
+		r.setCompanyName(companyName);
 		r.setTelphone(request.getParameter("telphone"));
 		r.setEmail(request.getParameter("email"));
 		

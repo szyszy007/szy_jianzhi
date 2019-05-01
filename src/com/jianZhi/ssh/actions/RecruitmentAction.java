@@ -61,7 +61,7 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 
 	//private Recruitment recruitment;
 	private String title;
-	private City city; 
+	private String city;
 	private String district;
 	private String address;
 	private Integer salary;
@@ -72,8 +72,8 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 	private Integer endYear;
 	private Integer endMonth;
 	private Integer endDay;
-	private Correspond correspond;//工作性质
-	private WorkKind workKind;
+	private String correspond;
+	private String workKind;
 	private Date date;
 	private Recruiter recruiter;
 	private String context;
@@ -347,7 +347,6 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 		
 		String title = request.getParameter("title");
 		String cityName = request.getParameter("cityName");
-		City city = cityService.getCity(cityName);
 		String district = request.getParameter("district");
 		String address = request.getParameter("address");
 		int salary = Integer.parseInt(request.getParameter("salary"));
@@ -359,14 +358,13 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 		int endMonth = Integer.parseInt(request.getParameter("endMonth"));
 		int endDay = Integer.parseInt(request.getParameter("endDay"));
 		String c = request.getParameter("correspondName");
-		Correspond correspond = correspondService.getCorrespond(c);
-		WorkKind workKind = workKindService.getWorkKindByName(request.getParameter("workKindName"));
+		String workKind = request.getParameter("workKindName");
 		int recruiter_id = Integer.parseInt(request.getParameter("id"));
 		String context = request.getParameter("context");
 		
 		Recruitment r = new Recruitment();
 		r.setTitle(title);
-		r.setCity(city);
+		r.setCity(cityName);
 		r.setDistrict(district);
 		r.setAddress(address);
 		r.setSalary(salary);
@@ -409,14 +407,6 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
 	}
 
 	public String getDistrict() {
@@ -499,22 +489,6 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 		this.endDay = endDay;
 	}
 
-	public Correspond getCorrespond() {
-		return correspond;
-	}
-
-	public void setCorrespond(Correspond correspond) {
-		this.correspond = correspond;
-	}
-
-	public WorkKind getWorkKind() {
-		return workKind;
-	}
-
-	public void setWorkKind(WorkKind workKind) {
-		this.workKind = workKind;
-	}
-
 	public Date getDate() {
 		return date;
 	}
@@ -583,6 +557,30 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 
 	public void setWorkKindFilter(String workKindFilter) {
 		this.workKindFilter = workKindFilter;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCorrespond() {
+		return correspond;
+	}
+
+	public void setCorrespond(String correspond) {
+		this.correspond = correspond;
+	}
+
+	public String getWorkKind() {
+		return workKind;
+	}
+
+	public void setWorkKind(String workKind) {
+		this.workKind = workKind;
 	}
 
 	public int getId() {

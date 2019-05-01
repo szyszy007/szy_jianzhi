@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import com.jianZhi.ssh.Dao.CompanyDao;
 import com.jianZhi.ssh.entities.Company;
 
+/**
+ * @author szy
+ */
 @Service
 public class CompanyService {
 	

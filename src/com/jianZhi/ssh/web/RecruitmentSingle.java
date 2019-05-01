@@ -9,9 +9,9 @@ public class RecruitmentSingle {
 	
 	private String title;
 
-	private WorkKind workKind;
+	private String workKind;
 
-	private Correspond correspond;
+	private String correspond;
 
 	private String workTime;
 
@@ -19,11 +19,11 @@ public class RecruitmentSingle {
 
 	private String address;
 
-	public RecruitmentSingle(int recruitment_id, String title, WorkKind workKind, Correspond correspond, String workTime, int salary, String address) {
+	public RecruitmentSingle(int recruitment_id, String title, String workKind, String correspond, String workTime, int salary, String address) {
 		this.recruitment_id = recruitment_id;
 		this.title = title;
-		this.workKind = new WorkKind(workKind);
-		this.correspond = new Correspond(correspond);
+		this.workKind = workKind;
+		this.correspond = correspond;
 		this.workTime = workTime;
 		this.salary = salary;
 		this.address = address;
@@ -47,19 +47,32 @@ public class RecruitmentSingle {
 		this.title = title;
 	}
 
-	public WorkKind getWorkKind() {
+	@Override
+	public String toString() {
+		return "RecruitmentSingle{" +
+				"recruitment_id=" + recruitment_id +
+				", title='" + title + '\'' +
+				", workKind='" + workKind + '\'' +
+				", correspond='" + correspond + '\'' +
+				", workTime='" + workTime + '\'' +
+				", salary=" + salary +
+				", address='" + address + '\'' +
+				'}';
+	}
+
+	public String getWorkKind() {
 		return workKind;
 	}
 
-	public void setWorkKind(WorkKind workKind) {
+	public void setWorkKind(String workKind) {
 		this.workKind = workKind;
 	}
 
-	public Correspond getCorrespond() {
+	public String getCorrespond() {
 		return correspond;
 	}
 
-	public void setCorrespond(Correspond correspond) {
+	public void setCorrespond(String correspond) {
 		this.correspond = correspond;
 	}
 
@@ -95,13 +108,6 @@ public class RecruitmentSingle {
 		this.recruitment_id = recruitment_id;
 	}
 
-
-	@Override
-	public String toString() {
-		return "RecruitmentSingle [recruitment_id=" + recruitment_id + ", title=" + title + ", workKind=" + workKind
-				+ ", correspond=" + correspond + ", workTime=" + workTime + ", salary=" + salary + ", address="
-				+ address + "]";
-	}
 
 	@Override
 	public int hashCode() {

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.jianZhi.ssh.Dao.CorrespondDao;
 import com.jianZhi.ssh.entities.Correspond;
 
+@Deprecated
 @Repository("correspondDao")
 public class CorrespondDaoImpl extends BaseDao<Correspond> implements CorrespondDao {
 
