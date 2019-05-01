@@ -29,6 +29,9 @@ import com.jianZhi.ssh.web.RecruitmentSingle;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+/**
+ * todo 详情页接口以及详情页
+ */
 public class RecruitmentAction extends ActionSupport implements SessionAware, RequestAware{
 	@Autowired
 	private RecruitmentService recruitmentService;
@@ -103,7 +106,7 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 	public String add() {
 		Recruitment recruitment = new Recruitment();
 		recruitment.setTitle(title);
-		recruitment.setCity(city);;
+		recruitment.setCity(city);
 		recruitment.setDistrict(district);
 		recruitment.setAddress(address);
 		recruitment.setSalary(salary);
@@ -125,6 +128,10 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 			return "input";
 	}
 
+    /**
+     * 列表页
+     * @return SUCCESS
+     */
 	public String list() {
 		try {
 			List<Recruitment> list = null;
@@ -151,13 +158,25 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 				list = recruitmentService.getRecruitmentsAndSort(listFilter);
 			}
 			request.put("list", list);
-		} catch(Exception x) {
+
+            List<City> citys = cityService.getAll();
+            request.put("citys", citys);
+            List<Correspond> corresponds = correspondService.getAll();
+            request.put("corresponds", corresponds);
+            List<WorkKind> workKinds = workKindService.getAll();
+            request.put("workKinds", workKinds);
+        } catch (Exception x) {
 			x.printStackTrace();
 			return "input";
 		}
 		return SUCCESS;
 	}
-	
+
+	public String recruitmentDetail() {
+	    return SUCCESS;
+    }
+
+	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.session = arg0;
 	}
@@ -519,7 +538,8 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 	public void setContext(String context) {
 		this.context = context;
 	}
-	
+
+	@Override
 	public void setRequest(Map<String, Object> arg0) {
 		this.request = arg0;
 	}

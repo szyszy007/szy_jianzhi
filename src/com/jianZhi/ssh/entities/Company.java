@@ -3,7 +3,7 @@ package com.jianZhi.ssh.entities;
 public class Company {
 	private Integer company_id;
 	private String companyName;
-	private City city;
+	private String city;
 	private String district;
 	private String address;
 	private String status;
@@ -14,12 +14,20 @@ public class Company {
 	public Company(Company c) {
 		this.company_id = c.getCompany_id();
 		this.companyName = c.getCompanyName();
-		this.city = new City(c.getCity());
+		this.city = c.getCity();
 		this.district = c.getDistrict();
 		this.address = c.getAddress();
 		this.status = c.getStatus();
 	}
-	
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 	public Integer getCompany_id() {
 		return company_id;
 	}
@@ -36,20 +44,12 @@ public class Company {
 		this.companyName = companyName;
 	}
 
-	public City getCity() {
-		return city;
-	}
-
 	public String getStatus() {
 		return status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
 	}
 
 	public String getDistrict() {

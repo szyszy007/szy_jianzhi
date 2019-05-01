@@ -16,6 +16,12 @@
 			<result name="input"></result>
 		</global-results>
 
+
+		<action name="logout" class="com.jianZhi.ssh.actions.BaseAction"
+				method="logout">
+			<result type="redirect">/</result>
+		</action>
+
 		<action name="student-login" class="com.jianZhi.ssh.actions.StudentLoginAction"
 			method="login">
 			<result name="login">/WEB-INF/student/frame.jsp</result>

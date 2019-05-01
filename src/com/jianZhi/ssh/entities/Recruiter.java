@@ -1,26 +1,33 @@
 package com.jianZhi.ssh.entities;
 
-import java.util.HashSet;
-import java.util.Set;
 
+/**
+ * fixme 取消City硬外键约束 修改：1.删除原Company字段2.新增company（id）字段和companyName字段
+ */
 public class Recruiter {
 	private Integer recruiter_id;
 	private String username;
+	private String name;
 	private String password;
-	private Company company;
+	private Integer company;
+	private String companyName;
 	private String telphone;
 	private String email;
-	private Set<Recruitment> recruitments = new HashSet<Recruitment>();
 
 	public Recruiter() {
 		
 	}
-	
+
+    /**
+     * fixme ??? 什么TMDxx构造方法？ 其他地方有usage，暂不删除
+     * @param r
+     */
 	public Recruiter(Recruiter r) {
 		this.recruiter_id = r.getRecruiter_id();
 		this.username = r.getUsername();
 		this.password = r.getPassword();
-		this.company = new Company(r.getCompany());
+		this.company = r.getCompany();
+		this.companyName = r.getCompanyName();
 		this.telphone = r.telphone;
 		this.email = r.email;
 //		this.recruitments = new HashSet<Recruitment>();
@@ -28,17 +35,16 @@ public class Recruiter {
 //			this.recruitments.add(re);
 //		}
 	}
-	
-	
-	public Set<Recruitment> getRecruitments() {
-		return recruitments;
-	}
 
-	public void setRecruitments(Set<Recruitment> recruitments) {
-		this.recruitments = recruitments;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Integer getRecruiter_id() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getRecruiter_id() {
 		return recruiter_id;
 	}
 
@@ -62,15 +68,23 @@ public class Recruiter {
 		this.password = password;
 	}
 
-	public Company getCompany() {
-		return company;
-	}
+    public Integer getCompany() {
+        return company;
+    }
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+    public void setCompany(Integer company) {
+        this.company = company;
+    }
 
-	public String getTelphone() {
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getTelphone() {
 		return telphone;
 	}
 

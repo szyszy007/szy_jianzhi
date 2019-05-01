@@ -8,6 +8,7 @@ import com.jianZhi.ssh.entities.City;
 @Repository("cityDao")
 public class CityDaoImpl extends BaseDao<City> implements CityDao{
 
+	@Override
 	public City getCityByName(String cityName) {
 		return (City) getSession().get(City.class, cityName);
 	}

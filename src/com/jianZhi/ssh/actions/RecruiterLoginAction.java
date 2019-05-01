@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jianZhi.ssh.entities.City;
+import com.jianZhi.ssh.services.CityService;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
@@ -31,6 +33,9 @@ public class RecruiterLoginAction extends ActionSupport implements SessionAware,
 	
 	@Autowired
 	private RecruitmentService recruitmentService;
+
+	@Autowired
+	private CityService cityService;
 	
 	public RecruiterLogin getRecruiterLogin() {
 		return recruiterLogin;
@@ -51,10 +56,10 @@ public class RecruiterLoginAction extends ActionSupport implements SessionAware,
 		
 		Recruiter rec = recruiterService.getRecruiter(id);
 		List<Recruitment> list = recruitmentService.getRecruitmentsByRecruiterId(id);
-		
+
 		request.put("rec", rec);
 		request.put("list", list);
-		
+
         return flag;
 	}
 

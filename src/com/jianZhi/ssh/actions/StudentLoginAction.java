@@ -31,7 +31,11 @@ public class StudentLoginAction extends ActionSupport implements SessionAware{
 	public void setStudentLogin(StudentLogin studentLogin) {
 		this.studentLogin = studentLogin;
 	}
-	
+
+    /**
+     * fixme login方法检查session，存在直接跳转至首页
+     * @return
+     */
 	public String login() {
 		String flag = studentService.login(studentLogin);
 		if(!flag.equals("login"))

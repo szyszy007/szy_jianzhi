@@ -2,11 +2,14 @@ package com.jianZhi.ssh.entities;
 
 import java.util.Date;
 
+/**
+ * @author szy
+ */
 public class Recruitment {
 	
 	private Integer recruitment_id;
 	private String title;
-	private City city; 
+	private String city;
 	private String district;
 	private String address;
 	private Integer salary;
@@ -17,11 +20,24 @@ public class Recruitment {
 	private Integer endYear;
 	private Integer endMonth;
 	private Integer endDay;
-	private Correspond correspond;//工作性质
-	private WorkKind workKind;
+	private String correspond;
+	private String workKind;
 	private Date date;
-	private Recruiter recruiter;
+	private Integer recruiter;
+	private String recruiterName;
 	private String context;
+	/**
+	 * 详细描述
+	 */
+	private String detail;
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	public Recruitment() {
 		
@@ -30,7 +46,7 @@ public class Recruitment {
 	public Recruitment(Recruitment r) {
 		this.recruitment_id = r.getRecruitment_id();
 		this.title = r.getTitle();
-		this.city = new City(r.getCity());
+		this.city = r.getCity();
 		this.district = r.getDistrict();
 		this.address = r.getAddress();
 		this.salary = r.getSalary();
@@ -41,10 +57,11 @@ public class Recruitment {
 		this.endYear = r.getEndYear();
 		this.endMonth = r.getBeginMonth();
 		this.endDay = r.getBeginDay();
-		this.correspond = new Correspond(r.getCorrespond());
-		this.workKind = new WorkKind(r.getWorkKind());
+		this.correspond = r.getCorrespond();
+		this.workKind = r.getWorkKind();
 		this.date = r.getDate();
-		this.recruiter = new Recruiter(r.getRecruiter());
+		this.recruiter = r.getRecruiter();
+		this.recruiterName = r.getRecruiterName();
 		this.context = r.getContext();
 	}
 	
@@ -128,19 +145,19 @@ public class Recruitment {
 		this.phone = phone;
 	}
 
-	public Correspond getCorrespond() {
+	public String getCorrespond() {
 		return correspond;
 	}
 
-	public void setCorrespond(Correspond correspond) {
+	public void setCorrespond(String correspond) {
 		this.correspond = correspond;
 	}
 
-	public WorkKind getWorkKind() {
+	public String getWorkKind() {
 		return workKind;
 	}
 
-	public void setWorkKind(WorkKind workKind) {
+	public void setWorkKind(String workKind) {
 		this.workKind = workKind;
 	}
 
@@ -152,20 +169,20 @@ public class Recruitment {
 		this.context = context;
 	}
 
-	public City getCity() {
-		return city;
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public void setCity(City city) {
-		this.city = city;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getDistrict() {
@@ -184,15 +201,23 @@ public class Recruitment {
 		this.address = address;
 	}
 
-	public Recruiter getRecruiter() {
-		return recruiter;
-	}
+    public Integer getRecruiter() {
+        return recruiter;
+    }
 
-	public void setRecruiter(Recruiter recruiter) {
-		this.recruiter = recruiter;
-	}
+    public void setRecruiter(Integer recruiter) {
+        this.recruiter = recruiter;
+    }
 
-	@Override
+    public String getRecruiterName() {
+        return recruiterName;
+    }
+
+    public void setRecruiterName(String recruiterName) {
+        this.recruiterName = recruiterName;
+    }
+
+    @Override
 	public String toString() {
 		return recruitment_id + "," + " Recruitment [title=" + title + ", city=" + city + ", district=" + district + ", address=" + address
 				+ ", salary=" + salary + ", phone=" + phone + ", beginYear=" + beginYear + ", beginMonth=" + beginMonth

@@ -15,7 +15,7 @@
 <body>
     <div class="top">
       <div id="top_t">
-        <div id="logo" class="fl"></div>
+        <div id="logo" class="fl"><h1 style="line-height: 81px; text-align: center;">大学生在线兼职平台</h1></div>
         <div id="photo_info" class="fr">
           <div id="photo" class="fl">
             <a href="#"><img src="images/a.png" alt="" width="60" height="60"></a>
@@ -24,7 +24,7 @@
             <div class="help_info">
               <span id="hp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <span id="gy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-              <a href="3" id="out">&nbsp;</a>
+              <a href="logout" id="out">&nbsp;</a>
             </div>
             <div class="info_center">
               <s:property value="#session.username" />同学

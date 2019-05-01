@@ -26,6 +26,47 @@
 		});
 
 	});
+
+	function getCity() {
+		$.ajax({
+			type: "POST",
+			url: "${pageContext.request.contextPath}/area/city",
+			contentType: "application/x-www-form-urlencoded;charset=utf-8",
+			data: {city: $(".city-select").val()},
+			dataType: "json",
+			success: function(msg) {
+			    let html = "";
+				for (let m in msg) {
+				    html += "<option>" + m + "</option>";
+                }
+                $(".city-select").html(html)
+            },
+			error: function(msg) {
+				alert("发生错误" + msg)
+            }
+		})
+		// getDistrict();
+    }
+
+    <%--function getDistrict() {--%>
+        <%--$.ajax({--%>
+            <%--type: "POST",--%>
+            <%--url: "${pageContext.request.contextPath}/area/district",--%>
+            <%--contentType: "application/x-www-form-urlencoded;charset=utf-8",--%>
+            <%--data: {city: $(".district-select").val()},--%>
+            <%--dataType: "json",--%>
+            <%--success: function(msg) {--%>
+                <%--let html = "";--%>
+                <%--for (let m in msg) {--%>
+                    <%--html += "<option>" + m + "</option>";--%>
+                <%--}--%>
+                <%--$(".district-select").html(html)--%>
+            <%--},--%>
+            <%--error: function(msg) {--%>
+                <%--alert("发生错误" + msg)--%>
+            <%--}--%>
+        <%--})--%>
+    <%--}--%>
 </script>
 <title>Document</title>
 </head>
@@ -53,43 +94,45 @@
 									<td><span class="fl">
 											<div class="select_border">
 												<div class="select_containers ">
-													<select name="cityFilter" class="select">
-														<option>广州</option>
+													<select name="cityFilter" class="select city-select">
+														<s:iterator var="city" value="#request.citys">
+															<option><s:property value="#city.cityName" /></option>
+														</s:iterator>
 													</select>
 												</div>
 											</div> 市
 									</span></td>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td><span class="fl">
-											<div class="select_border">
-												<div class="select_containers ">
-													<select name="districtFilter" class="select">
-														<option>越秀</option>
-														<option>海珠</option>
-														<option>荔湾</option>
-														<option>天河</option>
-														<option>白云</option>
-														<option>黄埔</option>
-														<option>花都</option>
-														<option>番禺</option>
-														<option>番禺</option>
-														<option>萝岗</option>
-														<option>南沙</option>
-													</select>
-												</div>
-											</div> 区
-									</span></td>
+									<%--<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>--%>
+									<%--<td><span class="fl">--%>
+											<%--<div class="select_border">--%>
+												<%--<div class="select_containers ">--%>
+													<%--<select name="districtFilter" class="select district-select">--%>
+														<%--<option>越秀</option>--%>
+														<%--<option>海珠</option>--%>
+														<%--<option>荔湾</option>--%>
+														<%--<option>天河</option>--%>
+														<%--<option>白云</option>--%>
+														<%--<option>黄埔</option>--%>
+														<%--<option>花都</option>--%>
+														<%--<option>番禺</option>--%>
+														<%--<option>萝岗</option>--%>
+														<%--<option>南沙</option>--%>
+													<%--</select>--%>
+												<%--</div>--%>
+											<%--</div> 区--%>
+									<%--</span></td>--%>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td>工作性质</td>
 									<td><span class="fl">
 											<div class="select_border">
 												<div class="select_containers ">
 													<select name="correspondFilter" class="select">
-														<option>实习</option>
-														<option>兼职</option>
+														<s:iterator var="correspond" value="#request.corresponds">
+															<option><s:property value="#correspond.correspondName" /></option>
+														</s:iterator>
 													</select>
 												</div>
-											</div> 区
+											</div>
 									</span></td>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td>工作类别</td>
@@ -97,9 +140,9 @@
 											<div class="select_border">
 												<div class="select_containers ">
 													<select name="workKindFilter" class="select">
-														<option>技术</option>
-														<option>营销</option>
-														<option>派单</option>
+														<s:iterator var="workKind" value="#request.workKinds">
+															<option><s:property value="#workKind.workKindName" /></option>
+														</s:iterator>
 													</select>
 												</div>
 											</div>
@@ -151,7 +194,7 @@
 						<th width="30">备注</th>
 					</tr>
 					<s:iterator var="recruitment" value="#request.list">
-						<tr class="tr">
+						<tr class="tr" onclick="location.href='${pageContext.request.contextPath}/test'">
 							<td><s:property value="#recruitment.title" /></td>
 							<td><s:property value="#recruitment.city.cityName" /></td>
 							<td><s:property value="#recruitment.district" /></td>

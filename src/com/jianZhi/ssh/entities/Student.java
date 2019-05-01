@@ -4,8 +4,10 @@ public class Student {
 
 	private Long student_id;
 	private String username;
+	private String name;
 	private String password;
-	private School school;
+	private Integer school;
+	private String schoolName;
 	private String telphone;
 	private String email;
 	
@@ -17,12 +19,21 @@ public class Student {
 		this.student_id = s.getStudent_id();
 		this.username = s.getUsername();
 		this.password = s.getPassword();
-		this.school = new School(s.getSchool());
+		this.school = s.getSchool();
+		this.schoolName = s.getSchoolName();
 		this.telphone = s.getTelphone();
 		this.email = s.getEmail();
 	}
 
-	public Long getStudent_id() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getStudent_id() {
 		return student_id;
 	}
 
@@ -46,14 +57,6 @@ public class Student {
 		this.password = password;
 	}
 
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
-
 	public String getTelphone() {
 		return telphone;
 	}
@@ -70,7 +73,23 @@ public class Student {
 		this.email = email;
 	}
 
-	@Override
+    public Integer getSchool() {
+        return school;
+    }
+
+    public void setSchool(Integer school) {
+        this.school = school;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    @Override
 	public String toString() {
 		return "Student [student_id=" + student_id + ", username=" + username + ", password=" + password + ", school="
 				+ school + ", telphone=" + telphone + ", email=" + email + "]";

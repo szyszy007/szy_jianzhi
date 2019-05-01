@@ -2,14 +2,32 @@ package com.jianZhi.ssh.web;
 
 public class RecruiterRegister {
 	private String username;
+	private String name;
 	private String password;
 	private String city;
 	private String district;
 	private String companyName;
 	private String telphone;
 	private String email;
+	private String address;
 
-	public String getUsername() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getUsername() {
 		return username;
 	}
 
@@ -65,10 +83,19 @@ public class RecruiterRegister {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "RecruiterRegister [username=" + username + ", password=" + password + ", city=" + city + ", district="
-				+ district + ", companyName=" + companyName + ", telphone=" + telphone + ", email=" + email + "]";
-	}
+    @Override
+    public String toString() {
+        return "RecruiterRegister{" +
+                "username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", telphone='" + telphone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
 }

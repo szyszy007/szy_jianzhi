@@ -8,47 +8,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table cellpadding="5" cellspacing="0" border="2" align="center">
-		<tr>
-			<td>标题</td>
-			<td>城市</td>
-			<td>市区</td>
-			<td>地址</td>
-			<td>工资</td>
-			<td>联系电话</td>
-			<td>开始日期</td>
-			<td>结束日期</td>
-			<td>工作性质</td>
-			<td>工作类别</td>
-			<td>发布日期</td>
-			<td>发布人</td>
-			<td>备注</td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0"
+	   class="list_table">
+	<tr>
+		<th width="10">标题</th>
+		<th width="15">城市</th>
+		<th width="15">市区</th>
+		<th width="40">地址</th>
+		<th width="20">工资</th>
+		<th width="30">联系电话</th>
+		<th width="30">开始日期</th>
+		<th width="30">结束日期</th>
+		<th width="30">工作性质</th>
+		<th width="30">工作类别</th>
+		<th width="30">发布日期</th>
+		<th width="30">发布人</th>
+		<th width="30">备注</th>
+	</tr>
+	<s:iterator var="recruitment" value="#request.list">
+		<tr class="tr">
+			<td><s:property value="#recruitment.title" /></td>
+			<td><s:property value="#recruitment.city.cityName" /></td>
+			<td><s:property value="#recruitment.district" /></td>
+			<td><s:property value="#recruitment.address" /></td>
+			<td><s:property value="#recruitment.salary" /></td>
+			<td><s:property value="#recruitment.phone" /></td>
+			<td><s:property value="#recruitment.beginYear" />. <s:property
+					value="#recruitment.beginMonth" />. <s:property
+					value="#recruitment.beginDay" /></td>
+			<td><s:property value="#recruitment.endYear" />. <s:property
+					value="#recruitment.endMonth" />. <s:property
+					value="#recruitment.endDay" /></td>
+			<td><s:property
+					value="#recruitment.correspond.correspondName" /></td>
+			<td><s:property value="#recruitment.workKind.workKindName" /></td>
+			<td><s:property value="#recruitment.date" /></td>
+			<td><s:property value="#recruitment.recruiter.username" /></td>
+			<td><s:property value="#recruitment.context" /></td>
 		</tr>
-		<s:iterator var="recruitment" value="#request.list">
-			<tr>
-				<td><s:property value="#recruitment.title"/></td>
-				<td><s:property value="#recruitment.city.cityName" /></td>
-				<td><s:property value="#recruitment.district" /></td>
-				<td><s:property value="#recruitment.address" /></td>
-				<td><s:property value="#recruitment.salary" /></td>
-				<td><s:property value="#recruitment.phone" /></td>
-				<td>
-					<s:property value="#recruitment.beginYear" />.
-					<s:property value="#recruitment.beginMonth" />.
-					<s:property value="#recruitment.beginDay" />
-				</td>
-				<td>
-					<s:property value="#recruitment.endYear" />.
-					<s:property value="#recruitment.endMonth" />.
-					<s:property value="#recruitment.endDay" />
-				</td>
-				<td><s:property value="#recruitment.correspond.correspondName" /></td>
-				<td><s:property value="#recruitment.workKind.workKindName" /></td>
-				<td><s:property value="#recruitment.date" /></td>
-				<td><s:property value="#recruitment.recruiter.username" /></td>
-				<td><s:property value="#recruitment.context" /></td>
-			</tr>
-		</s:iterator>
-	</table>
+	</s:iterator>
+</table>
 </body>
 </html>

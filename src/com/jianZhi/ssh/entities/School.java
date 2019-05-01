@@ -1,9 +1,12 @@
 package com.jianZhi.ssh.entities;
 
+/**
+ * @author szy
+ */
 public class School {
 	private Integer school_id;
 	private String schoolName;
-	private City city;
+	private String city;
 	private String district;
 	private String address;
 
@@ -13,7 +16,7 @@ public class School {
 	public School(School s) {
 		this.school_id = s.getSchool_id();
 		this.schoolName = s.getSchoolName();
-		this.city = new City(s.getCity());
+		this.city = s.getCity();
 		this.district = s.getDistrict();
 		this.address = s.getAddress();
 	}
@@ -34,11 +37,11 @@ public class School {
 		this.schoolName = schoolName;
 	}
 
-	public City getCity() {
+	public String getCity() {
 		return city;
 	}
 
-	public void setCity(City city) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 

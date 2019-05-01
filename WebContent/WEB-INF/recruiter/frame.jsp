@@ -24,7 +24,7 @@
             <div class="help_info">
               <span id="hp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
               <span id="gy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-              <a href="3" id="out">&nbsp;</a>
+              <a href="logout" id="out">&nbsp;</a>
             </div>
             <div class="info_center">
               <s:property value="#session.username" /> 先生

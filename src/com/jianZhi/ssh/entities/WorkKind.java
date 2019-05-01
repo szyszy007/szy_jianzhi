@@ -1,5 +1,10 @@
 package com.jianZhi.ssh.entities;
 
+/**
+ * 只有一个字段，没必要单独建个表
+ * 去掉硬约束
+ */
+@Deprecated
 public class WorkKind {
 	private String workKindName;
 

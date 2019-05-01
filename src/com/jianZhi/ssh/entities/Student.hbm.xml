@@ -17,9 +17,13 @@
             <column name="PASSWORD" />
         </property>
         
-        <many-to-one name="school" class="com.jianZhi.ssh.entities.School" lazy="false">
+        <property name="school" type="java.lang.Integer">
             <column name="SCHOOL_ID" />
-        </many-to-one>
+        </property>
+
+        <property name="schoolName" type="java.lang.String">
+            <column name="SCHOOL_NAME" />
+        </property>
         
         <property name="telphone" type="java.lang.String">
             <column name="TELPHONE" />

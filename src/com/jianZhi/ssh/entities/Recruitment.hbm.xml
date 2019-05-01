@@ -58,13 +58,13 @@
             <column name="END_DAY" />
         </property>
         
-        <many-to-one name="correspond" class="com.jianZhi.ssh.entities.Correspond"  fetch="join" lazy="false">
+        <property name="correspond" type="java.lang.String">
             <column name="CORRESPOND_NAME" />
-        </many-to-one>
+        </property>
         
-        <many-to-one name="workKind" class="com.jianZhi.ssh.entities.WorkKind"  fetch="join" lazy="false">
+        <property name="workKind" type="java.lang.String">
             <column name="WORKKIND_NAME" />
-        </many-to-one>
+        </property>
         
         <property name="date" type="java.sql.Timestamp">
             <column name="DATE" />
@@ -76,6 +76,10 @@
         
         <property name="context">
             <column name="CONTEXT" sql-type="TEXT"/>
+        </property>
+
+        <property name="detail">
+            <column name="DETAIL" sql-type="TEXT" />
         </property>
     </class>
 </hibernate-mapping>

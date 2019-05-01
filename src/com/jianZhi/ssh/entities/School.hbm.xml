@@ -14,9 +14,9 @@
             <column name="SCHOOL_NAME" />
         </property>
         
-        <many-to-one name="city" class="com.jianZhi.ssh.entities.City" lazy="false">
+        <property name="city" type="java.lang.String">
             <column name="CITY_NAME" />
-        </many-to-one>
+        </property>
         
         <property name="district" type="java.lang.String">
             <column name="DISTRICT" />
