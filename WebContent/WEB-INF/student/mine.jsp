@@ -52,7 +52,7 @@
 							<tr>
 								<td class="td_right">所属学校：</td>
 								<td><s:property
-										value="#request.stu.school.schoolName" /></td>
+										value="#request.stu.schoolName" /></td>
 							</tr>
 
 							<tr>

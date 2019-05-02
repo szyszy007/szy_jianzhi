@@ -96,7 +96,7 @@
 												<div class="select_containers ">
 													<select name="cityFilter" class="select city-select">
 														<s:iterator var="city" value="#request.citys">
-															<option><s:property value="#city.cityName" /></option>
+															<option><s:property value="#city" /></option>
 														</s:iterator>
 													</select>
 												</div>
@@ -128,7 +128,7 @@
 												<div class="select_containers ">
 													<select name="correspondFilter" class="select">
 														<s:iterator var="correspond" value="#request.corresponds">
-															<option><s:property value="#correspond.correspondName" /></option>
+															<option><s:property value="#correspond" /></option>
 														</s:iterator>
 													</select>
 												</div>
@@ -141,7 +141,7 @@
 												<div class="select_containers ">
 													<select name="workKindFilter" class="select">
 														<s:iterator var="workKind" value="#request.workKinds">
-															<option><s:property value="#workKind.workKindName" /></option>
+															<option><s:property value="#workKind" /></option>
 														</s:iterator>
 													</select>
 												</div>

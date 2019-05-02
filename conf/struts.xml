@@ -21,7 +21,7 @@
 				method="logout">
 			<result type="redirect">/</result>
 		</action>
-
+        <action name="checkSchool" class="com.jianZhi.ssh.actions.StudentAction" method="checkSchool"/>
 		<action name="student-login" class="com.jianZhi.ssh.actions.StudentLoginAction"
 			method="login">
 			<result name="login">/WEB-INF/student/frame.jsp</result>
@@ -63,7 +63,7 @@
 			method="list">
 			<result>/WEB-INF/student/list.jsp</result>
 		</action>
-        <action name="checkSchool" class="com.jianZhi.ssh.actions.StudentAction" method="checkSchool"/>
+
 
 		<!-- json -->
 		<action name="login" class="com.jianZhi.ssh.actions.StudentAction"

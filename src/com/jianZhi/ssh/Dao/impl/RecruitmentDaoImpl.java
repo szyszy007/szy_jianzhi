@@ -167,4 +167,16 @@ public class RecruitmentDaoImpl extends BaseDao<Recruitment> implements Recruitm
 		}
 		return list2;
 	}
+
+	@Override
+	public List<String> getCorresponds() {
+		String hql = "select distinct correspond from Recruitment";
+		return getSession().createQuery(hql).list();
+	}
+
+    @Override
+    public List<String> getWorkKinds() {
+        String hql = "select distinct workKind from Recruitment";
+        return getSession().createQuery(hql).list();
+    }
 }

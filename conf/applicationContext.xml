@@ -48,25 +48,25 @@
 		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
 	<!--</bean>-->
 	
-	<!--<bean id="companyDao" class="com.jianZhi.ssh.Dao.impl.CompanyDaoImpl">-->
-		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-	<!--</bean>-->
-	<!---->
-	<!--<bean id="recruiterDao" class="com.jianZhi.ssh.Dao.impl.RecruiterDaoImpl">-->
-		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-	<!--</bean>-->
-	<!---->
-	<!--<bean id="recruitmentDao" class="com.jianZhi.ssh.Dao.impl.RecruitmentDaoImpl">-->
-		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-	<!--</bean>-->
-	<!---->
-	<!--<bean id="schoolDao" class="com.jianZhi.ssh.Dao.impl.SchoolDaoImpl">-->
-		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-	<!--</bean>-->
-	<!---->
-	<!--<bean id="studentDao" class="com.jianZhi.ssh.Dao.impl.StudentDaoImpl">-->
-		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-	<!--</bean>-->
+	<bean id="companyDao" class="com.jianZhi.ssh.Dao.impl.CompanyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="recruiterDao" class="com.jianZhi.ssh.Dao.impl.RecruiterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="recruitmentDao" class="com.jianZhi.ssh.Dao.impl.RecruitmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="schoolDao" class="com.jianZhi.ssh.Dao.impl.SchoolDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="studentDao" class="com.jianZhi.ssh.Dao.impl.StudentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!--<bean id="correspondDao" class="com.jianZhi.ssh.Dao.impl.CorrespondDaoImpl">-->
 		<!--<property name="sessionFactory" ref="sessionFactory"></property>-->

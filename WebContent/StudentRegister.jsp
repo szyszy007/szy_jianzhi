@@ -15,11 +15,45 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/easyform.js"></script>
 </head>
+<script>
+    const contextPath = "${pageContext.request.contextPath}";
+    function checkSchool() {
+        const schoolForm = $(".form-school");
+        const schoolName = schoolForm.val();
+        let html = "<tr>" +
+            "<td>所在市</td>" +
+            "<td><input name=\"studentRegister.city\" type=\"text\"/></td>" +
+            "</tr>" +
+            "<tr>" +
+            "<td>所在区</td>" +
+            "<td><input name=\"studentRegister.district\" type=\"text\"/></td>" +
+            "</tr>" +
+            "<tr>" +
+            "<td>学校地址</td>" +
+            "<td><input name=\"studentRegister.address\" type=\"text\"/></td>" +
+            "</tr>";
+        $.ajax({
+            url: contextPath + "/checkSchool",
+            data: "schoolName=" + schoolName,
+            success: function (msg) {
+                console.log(msg)
+                if (msg == 'false') {
+                    schoolForm.parent().parent().after(html)
+                }
+            }
+        })
+    }
+</script>
 <body>
 	<br>
 		<div class="form-div">
 			<form id="reg-form" action="${pageContext.request.contextPath}/student-register" method="post">
 				<table>
+                    <tr>
+                        <td>用户名</td>
+                        <td><input name="studentRegister.name" type="text"/>
+                        </td>
+                    </tr>
 					<tr>
 						<td>用户名</td>
 						<td><input name="studentRegister.username" type="text"/>
@@ -38,16 +72,8 @@
 						<td><input name="studentRegister.telphone" type="text"/></td>
 					</tr>
 					<tr>
-						<td>所在市</td>
-						<td><input name="studentRegister.city" type="text"/></td>
-					</tr>
-					<tr>
-						<td>所在区</td>
-						<td><input name="studentRegister.district" type="text"/></td>
-					</tr>
-					<tr>
 						<td>所在学校</td>
-						<td><input name="studentRegister.schoolName" type="text"/></td>
+						<td><input class="form-school" name="studentRegister.schoolName" type="text" onblur="checkSchool()"/></td>
 					</tr>
 				</table>
 

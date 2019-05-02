@@ -2,6 +2,8 @@ package com.jianZhi.ssh.Dao;
 
 import com.jianZhi.ssh.entities.Company;
 
+import java.util.List;
+
 public interface CompanyDao {
 	public void insertCompany(Company c);
 	
@@ -12,4 +14,6 @@ public interface CompanyDao {
 	public Company selectSchool(int company_id);
 	
 	public Company selectCompanyByCityDistrictCompanyName(String city, String district, String companyName);
+
+	List<String> getCities();
 }

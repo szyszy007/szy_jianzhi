@@ -159,11 +159,11 @@ public class RecruitmentAction extends ActionSupport implements SessionAware, Re
 			}
 			request.put("list", list);
 
-            List<City> citys = cityService.getAll();
+            List<String> citys = cityService.getAll();
             request.put("citys", citys);
-            List<Correspond> corresponds = correspondService.getAll();
+            List<String> corresponds = correspondService.getCorresponds();
             request.put("corresponds", corresponds);
-            List<WorkKind> workKinds = workKindService.getAll();
+            List<String> workKinds = workKindService.getWorkKinds();
             request.put("workKinds", workKinds);
         } catch (Exception x) {
 			x.printStackTrace();

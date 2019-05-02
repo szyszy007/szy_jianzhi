@@ -9,6 +9,7 @@ import java.util.List;
  * todo 2.修改中间表字段查询逻辑
  *
  */
+@Deprecated
 public interface CityDao {
 	public City getCityByName(String cityName);
 

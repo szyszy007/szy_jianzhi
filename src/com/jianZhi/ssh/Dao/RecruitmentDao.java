@@ -93,4 +93,8 @@ public interface RecruitmentDao {
 	public List<Recruitment> getRecruitmentsByRecruiterId(int recruiter_id);
 
 	public List<RecruitmentSingle> getRecruitmentsSingleByRecruiterId(int recruiter_id);
+
+	List<String> getCorresponds();
+
+	List<String> getWorkKinds();
 }
