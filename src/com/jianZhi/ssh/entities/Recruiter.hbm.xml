@@ -9,6 +9,10 @@
             <column name="RECRUITER_ID" />
             <generator class="native" />
         </id>
+
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
         
         <property name="username" type="java.lang.String">
             <column name="USER_NAME" />
