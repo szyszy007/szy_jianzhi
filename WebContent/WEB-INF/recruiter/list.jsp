@@ -55,40 +55,41 @@
 									<td><span class="fl">
 											<div class="select_border">
 												<div class="select_containers ">
-													<select name="cityFilter" class="select">
-														<option>广州</option>
-													</select>
+													<s:iterator var="workKind" value="#request.workKinds">
+														<option><s:property value="#workKind" /></option>
+													</s:iterator>
 												</div>
 											</div> 市
 									</span></td>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td><span class="fl">
-											<div class="select_border">
-												<div class="select_containers ">
-													<select name="districtFilter" class="select">
-														<option>越秀</option>
-														<option>海珠</option>
-														<option>荔湾</option>
-														<option>天河</option>
-														<option>白云</option>
-														<option>黄埔</option>
-														<option>花都</option>
-														<option>番禺</option>
-														<option>番禺</option>
-														<option>萝岗</option>
-														<option>南沙</option>
-													</select>
-												</div>
-											</div> 区
-									</span></td>
+									<%--<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>--%>
+									<%--<td><span class="fl">--%>
+											<%--<div class="select_border">--%>
+												<%--<div class="select_containers ">--%>
+													<%--<select name="districtFilter" class="select">--%>
+														<%--<option>越秀</option>--%>
+														<%--<option>海珠</option>--%>
+														<%--<option>荔湾</option>--%>
+														<%--<option>天河</option>--%>
+														<%--<option>白云</option>--%>
+														<%--<option>黄埔</option>--%>
+														<%--<option>花都</option>--%>
+														<%--<option>番禺</option>--%>
+														<%--<option>番禺</option>--%>
+														<%--<option>萝岗</option>--%>
+														<%--<option>南沙</option>--%>
+													<%--</select>--%>
+												<%--</div>--%>
+											<%--</div> 区--%>
+									<%--</span></td>--%>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td>工作性质</td>
 									<td><span class="fl">
 											<div class="select_border">
 												<div class="select_containers ">
 													<select name="correspondFilter" class="select">
-														<option>实习</option>
-														<option>兼职</option>
+														<s:iterator var="correspond" value="#request.corresponds">
+															<option><s:property value="#correspond" /></option>
+														</s:iterator>
 													</select>
 												</div>
 											</div> 区
@@ -99,9 +100,9 @@
 											<div class="select_border">
 												<div class="select_containers ">
 													<select name="workKindFilter" class="select">
-														<option>技术</option>
-														<option>营销</option>
-														<option>派单</option>
+														<s:iterator var="workKind" value="#request.workKinds">
+															<option><s:property value="#workKind" /></option>
+														</s:iterator>
 													</select>
 												</div>
 											</div>
@@ -155,7 +156,7 @@
 					<s:iterator var="recruitment" value="#request.list">
 						<tr class="tr">
 							<td><s:property value="#recruitment.title" /></td>
-							<td><s:property value="#recruitment.city.cityName" /></td>
+							<td><s:property value="#recruitment.city" /></td>
 							<td><s:property value="#recruitment.district" /></td>
 							<td><s:property value="#recruitment.address" /></td>
 							<td><s:property value="#recruitment.salary" /></td>
@@ -167,10 +168,10 @@
 									value="#recruitment.endMonth" />. <s:property
 									value="#recruitment.endDay" /></td>
 							<td><s:property
-									value="#recruitment.correspond.correspondName" /></td>
-							<td><s:property value="#recruitment.workKind.workKindName" /></td>
+									value="#recruitment.correspond" /></td>
+							<td><s:property value="#recruitment.workKind" /></td>
 							<td><s:property value="#recruitment.date" /></td>
-							<td><s:property value="#recruitment.recruiter.username" /></td>
+							<td><s:property value="#recruitment.name" /></td>
 							<td><s:property value="#recruitment.context" /></td>
 						</tr>
 					</s:iterator>

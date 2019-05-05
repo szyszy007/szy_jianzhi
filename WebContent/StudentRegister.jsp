@@ -50,7 +50,7 @@
 			<form id="reg-form" action="${pageContext.request.contextPath}/student-register" method="post">
 				<table>
                     <tr>
-                        <td>用户名</td>
+                        <td>姓名</td>
                         <td><input name="studentRegister.name" type="text"/>
                         </td>
                     </tr>

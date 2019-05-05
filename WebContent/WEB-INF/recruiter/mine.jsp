@@ -48,13 +48,13 @@
 							<tr>
 								<td class="td_right">用户名：</td>
 								<td><s:property
-										value="#request.rec.username" /></td>
+										value="#request.rec.name" /></td>
 							</tr>
 
 							<tr>
 								<td class="td_right">所属公司：</td>
 								<td><s:property
-										value="#request.rec.company.companyName" /></td>
+										value="#request.rec.companyName" /></td>
 							</tr>
 
 							<tr>
